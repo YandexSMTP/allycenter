@@ -2,8 +2,6 @@
 
 A comprehensive Decky Loader plugin for the **ASUS ROG Ally** running SteamOS.
 
-**Author:** Keith Baker (Pixel Addict Games)
-
 ## Features
 
 - **🖥️ Screen Off Mode** - Turn off the display for background downloads to save battery
