@@ -28,7 +28,7 @@ curl -L https://github.com/PixelAddictGames/allycenter/raw/main/install.sh | sh
 
 ### Manual Install
 
-1. Download the latest release from the [Releases]([https://github.com/PixelAddictGames/allycenter/releases](https://github.com/PixelAddictUnlocked/allycenter/releases)) page
+1. Download the latest release from the [Releases](https://github.com/PixelAddictUnlocked/allycenter/releases) page
 2. Extract to `~/homebrew/plugins/Ally Center/`
 3. Restart Decky Loader or reboot
 
