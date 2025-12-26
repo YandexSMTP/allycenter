@@ -3,13 +3,20 @@ node_modules/
 py_modules/
 
 # Build output
+# main JS/TS bundles and artifacts
 dist/
 out/
+build/
+.cache/
 *.zip
 
-# IDE
-.vscode/settings.json
+# TypeScript
+*.tsbuildinfo
+
+# IDE / Editor
+.vscode/
 .idea/
+*.swp
 
 # OS
 .DS_Store
@@ -17,10 +24,14 @@ Thumbs.db
 
 # Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Environment
 .env
-.env.local
+.env.*
 
 # Python
 __pycache__/
@@ -28,6 +39,9 @@ __pycache__/
 *$py.class
 .Python
 *.so
+.venv/
+venv/
+.env.python
 
 # pnpm
 .pnpm-store/
