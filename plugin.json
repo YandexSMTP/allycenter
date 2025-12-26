@@ -6,6 +6,6 @@
   "publish": {
     "tags": ["hardware", "rog-ally", "asus", "rgb", "battery", "performance"],
     "description": "A comprehensive control center for the ASUS ROG Ally - RGB lighting, battery health, device info, performance profiles, and screen control.",
-    "image": "https://github.com/PixelAddictGames/allycenter/raw/main/icons/icon.png"
+    "image": "https://github.com/PixelAddictUnlocked/allycenter/raw/main/icons/icon.png"
   }
 }
