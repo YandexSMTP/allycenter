@@ -104,5 +104,5 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Support
 
-- [GitHub Issues](https://github.com/PixelAddictGames/allycenter/issues)
+- [GitHub Issues](https://github.com/PixelAddictUnlocked/allycenter/issues)
 - [Discord](https://discord.gg/pixeladdictgames)
