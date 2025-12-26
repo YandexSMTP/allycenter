@@ -3,7 +3,7 @@ Ally Center - Decky Loader Plugin Backend
 ROG Ally hardware control and system management
 
 2025 Keith Baker / Pixel Addict Games
-Licensed under GPL3
+Licensed under MIT
 """
 
 import os
