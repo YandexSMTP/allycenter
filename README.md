@@ -10,6 +10,12 @@ A comprehensive Decky Loader plugin for the **ASUS ROG Ally** running SteamOS.
 - **💡 RGB Lighting** - Control RGB colors, brightness, and effects (static, breathing, rainbow)
 - **📱 Device Info** - View system information including CPU, GPU, BIOS, and kernel version
 
+![AllyCenter Screenshot](images/1.png)
+![AllyCenter Screenshot](images/2.png)
+![AllyCenter Screenshot](images/3.png)
+![AllyCenter Screenshot](images/4.png)
+![AllyCenter Screenshot](images/5.png)
+
 ## Requirements
 
 - ASUS ROG Ally or ROG Ally X
