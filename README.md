@@ -41,7 +41,7 @@ curl -L https://github.com/PixelAddictGames/allycenter/raw/main/install.sh | sh
 
 ```bash
 # Clone the repository
-git clone https://github.com/PixelAddictGames/allycenter.git
+git clone https://github.com/PixelAddictUnlocked/allycenter.git
 cd allycenter
 
 # Install dependencies
