@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "setup",
+      "type": "shell",
+      "command": "pnpm i",
+      "problemMatcher": []
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "pnpm run build",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "deploy",
+      "type": "shell",
+      "command": "rsync -azp --progress --delete --exclude='.git' --exclude='node_modules' --exclude='.pnpm-store' . ${config:deckuser}@${config:deckip}:${config:deckdir}/homebrew/plugins/${config:pluginname}",
+      "problemMatcher": [],
+      "dependsOn": ["build"]
+    },
+    {
+      "label": "deploy-restart",
+      "type": "shell",
+      "command": "rsync -azp --progress --delete --exclude='.git' --exclude='node_modules' --exclude='.pnpm-store' -e ssh . ${config:deckuser}@${config:deckip}:/tmp/${config:pluginname} && ssh -t ${config:deckuser}@${config:deckip} 'sudo rm -rf ${config:deckdir}/homebrew/plugins/${config:pluginname} && sudo mv /tmp/${config:pluginname} ${config:deckdir}/homebrew/plugins/ && sudo systemctl restart plugin_loader'",
+      "problemMatcher": [],
+      "dependsOn": ["build"]
+    },
+    {
+      "label": "watch",
+      "type": "shell",
+      "command": "pnpm run watch",
+      "problemMatcher": [],
+      "isBackground": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "current_profile": "performance",
+  "rgb_enabled": true,
+  "rgb_color": "#FF0000",
+  "rgb_brightness": 100,
+  "rgb_effect": "static",
+  "charge_limit": 100
+}

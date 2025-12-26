@@ -1,0 +1,41 @@
+{
+  "name": "ally-center",
+  "version": "1.0.0",
+  "description": "Decky Loader plugin for ASUS ROG Ally - RGB, battery health, device info, performance profiles, and screen control",
+  "author": "Keith Baker <Pixel Addict Games>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "shx rm -rf dist && rollup -c --silent",
+    "watch": "rollup -c -w",
+    "test": "echo \"No tests configured\""
+  },
+  "devDependencies": {
+    "@decky/rollup": "^1.0.1",
+    "@decky/ui": "^4.8.0",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.7",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "rollup": "^4.22.4",
+    "shx": "^0.3.4",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@decky/api": "^1.1.2"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react",
+        "react-dom"
+      ]
+    }
+  }
+}
