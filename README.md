@@ -21,7 +21,7 @@ A comprehensive Decky Loader plugin for the **ASUS ROG Ally** running SteamOS.
 ### Quick Install (Recommended)
 
 ```bash
-curl -L https://github.com/PixelAddictGames/allycenter/raw/main/install.sh | sh
+curl -L https://github.com/PixelAddictUnlocked/allycenter/raw/main/install.sh | sh
 ```
 
 ### Manual Install
@@ -41,7 +41,7 @@ curl -L https://github.com/PixelAddictGames/allycenter/raw/main/install.sh | sh
 
 ```bash
 # Clone the repository
-git clone https://github.com/PixelAddictGames/allycenter.git
+git clone https://github.com/PixelAddictUnlocked/allycenter.git
 cd allycenter
 
 # Install dependencies
