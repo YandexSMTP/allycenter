@@ -942,8 +942,20 @@ class Plugin:
             "min": 5,
             "max": 30,
             "tdp_override": self.settings.get("tdp_override", False),
+            "use_external_tdp": self.settings.get("use_external_tdp", False),
             "available": os.path.exists(RYZENADJ_PATH) or os.path.exists("/sys/devices/platform/asus-nb-wmi")
         }
+
+    async def set_use_external_tdp(self, enabled: bool) -> bool:
+        """Enable/disable external TDP management (e.g., SimpleDeckyTDP)"""
+        try:
+            self.settings["use_external_tdp"] = enabled
+            await self.save_settings()
+            decky.logger.info(f"External TDP management {'enabled' if enabled else 'disabled'}")
+            return True
+        except Exception as e:
+            decky.logger.error(f"Failed to set external TDP mode: {e}")
+            return False
 
     async def set_tdp(self, tdp: int) -> bool:
         try:

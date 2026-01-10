@@ -114,6 +114,7 @@ const setCpuBoostEnabled = callable<[boolean], boolean>(
   "set_cpu_boost_enabled"
 );
 const getFanDiagnostics = callable<[], FanDiagnostics>("get_fan_diagnostics");
+const setUseExternalTdp = callable<[boolean], boolean>("set_use_external_tdp");
 
 interface DeviceInfo {
   model: string;
@@ -196,6 +197,7 @@ interface TdpSettings {
   min: number;
   max: number;
   tdp_override: boolean;
+  use_external_tdp: boolean;
   available: boolean;
 }
 
@@ -798,6 +800,7 @@ const PerformanceSection: VFC = () => {
   const [currentTdp, setCurrentTdp] = useState(15);
   const [currentFanMode, setCurrentFanMode] = useState("auto");
   const [tdpOverride, setTdpOverrideState] = useState(false);
+  const [useExternalTdp, setUseExternalTdpState] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -813,6 +816,7 @@ const PerformanceSection: VFC = () => {
         setCurrentFanMode(fan.mode);
         setCurrentTdp(tdpSettings.tdp);
         setTdpOverrideState(tdpSettings.tdp_override || false);
+        setUseExternalTdpState(tdpSettings.use_external_tdp || false);
       } catch (e) {
         console.error("Failed to get performance data:", e);
       }
@@ -885,6 +889,22 @@ const PerformanceSection: VFC = () => {
     }
   };
 
+  const handleExternalTdpToggle = async (enabled: boolean) => {
+    setUseExternalTdpState(enabled);
+    await setUseExternalTdp(enabled);
+    if (enabled) {
+      toaster.toast({
+        title: "Ally Center",
+        body: "TDP managed by external plugin",
+      });
+    } else {
+      toaster.toast({
+        title: "Ally Center",
+        body: "TDP managed by Ally Center",
+      });
+    }
+  };
+
   if (loading) {
     return (
       <PanelSection title="Performance">
@@ -902,9 +922,11 @@ const PerformanceSection: VFC = () => {
           <div style={infoRowStyle}>
             <span style={labelStyle}>Profile</span>
             <span
-              style={{ ...valueStyle, color: tdpOverride ? "#ff9800" : "#fff" }}
+              style={{ ...valueStyle, color: useExternalTdp ? "#8b929a" : (tdpOverride ? "#ff9800" : "#fff") }}
             >
-              {tdpOverride
+              {useExternalTdp
+                ? "External"
+                : tdpOverride
                 ? "Manual"
                 : profilesData?.profiles[profilesData.current]?.name ||
                   "Unknown"}
@@ -921,68 +943,81 @@ const PerformanceSection: VFC = () => {
 
       <PanelSectionRow>
         <ToggleField
-          label="TDP Override"
-          checked={tdpOverride}
-          onChange={handleTdpOverrideToggle}
+          label="Use External TDP"
+          description="Let SimpleDeckyTDP or other plugins manage TDP"
+          checked={useExternalTdp}
+          onChange={handleExternalTdpToggle}
         />
       </PanelSectionRow>
 
-      <PanelSectionRow>
-        <SliderField
-          label={`TDP: ${currentTdp}W`}
-          value={currentTdp}
-          min={5}
-          max={30}
-          step={1}
-          disabled={!tdpOverride}
-          showValue={false}
-          onChange={handleTdpChange}
-        />
-      </PanelSectionRow>
-
-      <PanelSectionRow>
-        <ButtonItem layout="below" onClick={() => setExpanded(!expanded)}>
-          {expanded ? "Performance Presets ▲" : "Performance Presets ▼"}
-        </ButtonItem>
-      </PanelSectionRow>
-
-      {expanded && profilesData && (
+      {!useExternalTdp && (
         <div>
-          {Object.entries(profilesData.profiles).map(([id, profile]) => (
-            <PanelSectionRow key={id}>
-              <ButtonItem
-                layout="below"
-                onClick={() => handleProfileSelect(id)}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <div>
-                    <span
+          <PanelSectionRow>
+            <ToggleField
+              label="TDP Override"
+              checked={tdpOverride}
+              onChange={handleTdpOverrideToggle}
+            />
+          </PanelSectionRow>
+
+          <PanelSectionRow>
+            <SliderField
+              label={`TDP: ${currentTdp}W`}
+              value={currentTdp}
+              min={5}
+              max={30}
+              step={1}
+              disabled={!tdpOverride}
+              showValue={false}
+              onChange={handleTdpChange}
+            />
+          </PanelSectionRow>
+
+          <PanelSectionRow>
+            <ButtonItem layout="below" onClick={() => setExpanded(!expanded)}>
+              {expanded ? "Performance Presets ▲" : "Performance Presets ▼"}
+            </ButtonItem>
+          </PanelSectionRow>
+
+          {expanded && profilesData && (
+            <div>
+              {Object.entries(profilesData.profiles).map(([id, profile]) => (
+                <PanelSectionRow key={id}>
+                  <ButtonItem
+                    layout="below"
+                    onClick={() => handleProfileSelect(id)}
+                  >
+                    <div
                       style={{
-                        fontWeight:
-                          profilesData.current === id ? "bold" : "normal",
-                        color: profilesData.current === id ? "#1a9fff" : "#fff",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        width: "100%",
                       }}
                     >
-                      {profile.name}
-                    </span>
-                    {profilesData.current === id && (
-                      <span style={{ color: "#1a9fff", marginLeft: "8px" }}>
-                        ✓
-                      </span>
-                    )}
-                  </div>
-                  <span style={{ color: "#8b929a" }}>{profile.tdp}W</span>
-                </div>
-              </ButtonItem>
-            </PanelSectionRow>
-          ))}
+                      <div>
+                        <span
+                          style={{
+                            fontWeight:
+                              profilesData.current === id ? "bold" : "normal",
+                            color: profilesData.current === id ? "#1a9fff" : "#fff",
+                          }}
+                        >
+                          {profile.name}
+                        </span>
+                        {profilesData.current === id && (
+                          <span style={{ color: "#1a9fff", marginLeft: "8px" }}>
+                            ✓
+                          </span>
+                        )}
+                      </div>
+                      <span style={{ color: "#8b929a" }}>{profile.tdp}W</span>
+                    </div>
+                  </ButtonItem>
+                </PanelSectionRow>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

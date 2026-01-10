@@ -22,6 +22,7 @@ Turn off the display for background downloads to save battery. When enabled:
 
 ### Performance
 
+- **Use External TDP** - Disable Ally Center's TDP management to use SimpleDeckyTDP or other plugins
 - **Performance Presets** - Quick switch between Download (5W), Silent (15W), Performance (25W), and Turbo (30W) modes
 - **TDP Override** - Manually set TDP from 5W to 30W with fine-grained control
 - **Fan Mode** - Choose between Auto, Quiet, Balanced, and Performance fan profiles
